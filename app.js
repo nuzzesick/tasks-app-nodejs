@@ -1,4 +1,5 @@
 const { inquirerMenu, pause } = require('./helpers/inquirer');
+const Tasks = require('./models/tasks');
 require('colors');
 
 console.clear();
