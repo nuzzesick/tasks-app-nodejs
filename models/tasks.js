@@ -47,6 +47,16 @@ class Tasks {
       console.log(`${color(taskNumber + '.')} ${task.desc} :: ${status}`);
     });
   }
+
+  toggleCompleted(ids = []) {
+    ids.forEach(id => {
+      const task = this._list[id];
+      if (!task.completedIn) task.completedIn = new Date().toISOString();
+    });
+    this.listArr.forEach(task => {
+      if (!ids.includes(task.id)) this._list[task.id].completedIn = null;
+    });
+  }
 }
 
 module.exports = Tasks;
