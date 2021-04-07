@@ -32,6 +32,17 @@ class Tasks {
     const task = new Task(desc);
     this._list[task.id] = task;
   }
+
+  listCompletedAndPendingTasks = (completed = true) => {
+    console.log('');
+    const tasks = this.listArr.filter(task => completed ? task.completedIn : !task.completedIn);
+    const color = completed ? colors.green : colors.red;
+    const status = completed ? 'Completed' : 'Incompleted';
+    tasks.forEach((task, index) => {
+      const taskNumber = index + 1;
+      console.log(`${color(taskNumber + '.')} ${task.desc} :: ${status}`);
+    });
+  }
 }
 
 module.exports = Tasks;
