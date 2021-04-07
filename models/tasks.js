@@ -33,6 +33,10 @@ class Tasks {
     this._list[task.id] = task;
   }
 
+  deleteTask(id = '') {
+    if (this._list[id]) delete this._list[id];
+  }
+
   listCompletedAndPendingTasks = (completed = true) => {
     console.log('');
     const tasks = this.listArr.filter(task => completed ? task.completedIn : !task.completedIn);
